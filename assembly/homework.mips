@@ -1,9 +1,6 @@
 # TODO - implement counting up from 1 to 10
 #in MIPS assembly, code only
 
-# TODO - implement counting up from 1 to 10
-# in MIPS assembly, code only
-
 .txt
 main:
 	li $a0, 0
