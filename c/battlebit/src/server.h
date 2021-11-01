@@ -1,5 +1,5 @@
 //
-// Created by carson on 5/20/20.
+// Created by carson on 5/20/20. Editted by Lauren Helbling
 //
 
 #ifndef BATTLESHIP_SERVER_H
