@@ -130,10 +130,9 @@ exit - quit the server
 
 #### Grading Rubric
 
-The grading will be mainly based on automated tests.  However, a major component of the project is network programming, which is difficult to test in an automated manner, and will require us to run and test your application manually.  Additionally, you will be required to record a demo of the application running in network mode, with a specfic set of commands.
+The grading will be mainly based on automated tests.
 
 The grading will break down like so:
 
-* 70% automated tests
-* 20% recorded demo
-* 10% code quality and proper synchronization
+* 85% automated tests
+* 15% code quality

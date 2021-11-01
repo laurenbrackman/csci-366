@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        main {
+            max-width: 46em;
+            margin: 2em auto;
+            padding: 0 1em;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+    </style>
+    <script src="https://unpkg.io/htmx.org@1.5.0/dist/htmx.min.js"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.8.1"></script>
+    <title>Hello CSCI 366</title>
+</head>
+<body>
+<main>
+
+    <h1><img src="https://avatars2.githubusercontent.com/u/67816555?s=50&v=4"> CS 366 - Systems</h1>
+
+    <h4 style="color:green">$!message</h4>
+    <h4 style="color:red">$!error</h4>

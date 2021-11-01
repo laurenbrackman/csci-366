@@ -6,6 +6,7 @@
 #define BATTLESHIP_SERVER_H
 
 #include "char_buff.h"
+#include "pthread.h"
 
 #define BATTLEBIT_PORT 9876
 
@@ -18,5 +19,7 @@ typedef  struct game_server {
 int server_start();
 
 void server_broadcast(char_buff *msg);
+
+struct game_server *server_create();
 
 #endif //BATTLESHIP_SERVER_H

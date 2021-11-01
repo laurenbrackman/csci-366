@@ -27,6 +27,7 @@ $ git clone https://github.com/msu/csci-366-fall2021.git csci-366-fall2021-priva
 $ cd csci-366-fall2021-private
 $ git remote set-url origin git@github.com:<YOUR GITHUB USER NAME>/csci-366-fall2021-private.git
 $ git remote add upstream https://github.com/msu/csci-366-fall2021.git
+$ git push origin master
 ```
  
 

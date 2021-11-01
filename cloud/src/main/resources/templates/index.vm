@@ -1,0 +1,24 @@
+#parse('templates/header.vm')
+
+<div>
+    <h3>Archive Cat</h3>
+</div>
+
+<form hx-post="/archive" style="margin-top: 8px">
+    URL To Archive:
+    <input name="url" type="text" style="width: 50%">
+    <button>
+        Archive
+        <img class="htmx-indicator" src="https://htmx.org/img/bars.svg"/>
+    </button>
+</form>
+
+<hr/>
+<button hx-delete="/archive"
+        _="on load set element originalHTML to my innerHTML
+           on htmx:afterRequest wait 2s then put the originalHTML into me">
+    Clear Archives
+    <img class="htmx-indicator" src="https://htmx.org/img/bars.svg"/>
+</button>
+
+#parse('templates/footer.vm')

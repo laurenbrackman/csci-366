@@ -1,0 +1,6 @@
+<div>
+    <h1>Archive</h1>
+    <a href="/">Back to ArchiveCat</a>
+    <iframe style="width: 100%;height: 100%" src="/archives/$!sha/index.html">
+    </iframe>
+</div>
