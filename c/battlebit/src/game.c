@@ -53,7 +53,14 @@ unsigned long long int xy_to_bitval(int x, int y) {
     //
     // you will need to use bitwise operators and some math to produce the right
     // value.
-    return 1ull;
+    unsigned long long int mask = 0ull;
+    if (x <  0 | x > 7 | y<0 | y>7){
+        return mask;
+    }
+    else{
+        mask +=  1UL << ((8*y)+x);
+        return mask;
+    }
 }
 
 struct game * game_get_current() {
@@ -75,13 +82,27 @@ int game_load_board(struct game *game, int player, char * spec) {
 }
 
 int add_ship_horizontal(player_info *player, int x, int y, int length) {
-    // implement this as part of Step 2
-    // returns 1 if the ship can be added, -1 if not
-    // hint: this can be defined recursively
+    if(length == 0){
+        return 1;
+    }
+    else if (xy_to_bitval(x,y) != 0ULL){
+        return -1;
+    }
+    else{
+        player->ships = player->ships | xy_to_bitval(x,y);
+        return add_ship_horizontal(player, x+1, y, length-1);
+    }
 }
 
 int add_ship_vertical(player_info *player, int x, int y, int length) {
-    // implement this as part of Step 2
-    // returns 1 if the ship can be added, -1 if not
-    // hint: this can be defined recursively
+    if(length == 0){
+        return 1;
+    }
+    else if (xy_to_bitval(x,y) != 0ULL){
+        return -1;
+    }
+    else{
+        player->ships = player->ships | xy_to_bitval(x,y);
+        return add_ship_vertical(player, x, y+1, length-1);
+    }
 }
