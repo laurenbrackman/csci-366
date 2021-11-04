@@ -83,13 +83,18 @@ int game_load_board(struct game *game, int player, char * spec) {
     // if it is invalid, you should return -1
     player_info *player_info = &game->players[player];
 
-    if(spec == NULL){
+    //Check for NULL
+    if(spec ==NULL){
         return -1;
     }
-
+    //Check for invalid input length
     if(strlen(spec) != 15){
         return -1;
     }
+
+    //Track Ships
+    int c,b,d,s,p;
+    c = b = d = s = p = 0;
 
     //For ship in spec
     for(int i=0; i<5; i++){
@@ -112,20 +117,25 @@ int game_load_board(struct game *game, int player, char * spec) {
 
         //Set Length
         int length = 0;
-        if (ship == 'C' | ship == 'c') {
+        if (ship == 'C' || ship == 'c' && c==0) {
             length = 5;
+            c++;
         }
-        else if (ship == 'B' | ship == 'b') {
+        else if (ship == 'B' || ship == 'b' && b==0) {
             length = 4;
+            b++;
         }
-        else if (ship == 'D' | ship == 'd') {
+        else if (ship == 'D' || ship == 'd' && d==0) {
             length = 3;
+            d++;
         }
-        else if (ship == 'S' | ship == 's') {
+        else if (ship == 'S' || ship == 's' && s==0) {
             length = 3;
+            s++;
         }
-        else if (ship == 'P' | ship == 'p') {
+        else if (ship == 'P' || ship == 'p' && p==0) {
             length = 2;
+            p++;
         } else {
             return -1;
         }
