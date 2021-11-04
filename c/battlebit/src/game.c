@@ -4,6 +4,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "game.h"
 
 // STEP 9 - Synchronization: the GAME structure will be accessed by both players interacting
@@ -79,29 +81,87 @@ int game_load_board(struct game *game, int player, char * spec) {
     // slot and return 1
     //
     // if it is invalid, you should return -1
+    player_info *player_info = &game->players[player];
+
+    if(strlen(spec) != 15 | spec == NULL){
+        return -1;
+    }
+
+    //For ship in spec
+    for(int i=0; i<5; i++){
+        //Set Row and Column
+        char * current = spec;
+        char ship = *current;
+        char col = *(current + 1);
+        char row = *(current + 2);
+
+        //Convert to Ints
+        int colInt = col - '0';
+        int rowInt = row - '0';
+
+        //Set Length
+        int length = 0;
+        if (ship == 'C' | ship == 'c') {
+            length = 5;
+        }
+        else if (ship == 'B' | ship == 'b') {
+            length = 4;
+        }
+        else if (ship == 'D' | ship == 'd') {
+            length = 3;
+        }
+        else if (ship == 'S' | ship == 's') {
+            length = 3;
+        }
+        else if (ship == 'P' | ship == 'p') {
+            length = 2;
+        } else {
+            return -1;
+        }
+
+        if(islower(ship)){
+            add_ship_horizontal(player_info, colInt, rowInt, length);
+        }
+        else{
+            add_ship_vertical(player_info, colInt, rowInt, length);
+        }
+    }
+    return 1;
 }
 
 int add_ship_horizontal(player_info *player, int x, int y, int length) {
+    //End Recursion
     if(length == 0){
         return 1;
     }
-    else if (xy_to_bitval(x,y) != 0ULL){
+
+    //Check for collision by checking the intersection of the ships and the bit val
+    else if ((player->ships & xy_to_bitval(x,y)) != 0ULL){
         return -1;
     }
+
+    //Place one bit and call function recursively
     else{
+        //ships = ships OR new bit val
         player->ships = player->ships | xy_to_bitval(x,y);
         return add_ship_horizontal(player, x+1, y, length-1);
     }
 }
 
 int add_ship_vertical(player_info *player, int x, int y, int length) {
+    //End Recursion
     if(length == 0){
         return 1;
     }
-    else if (xy_to_bitval(x,y) != 0ULL){
+
+    //Check for collision by checking the intersection of the ships and the bit val
+    else if ((player->ships & xy_to_bitval(x,y)) != 0ULL){
         return -1;
     }
+
+    //Place one bit and call function recursively
     else{
+        // ships = ships union new bit val
         player->ships = player->ships | xy_to_bitval(x,y);
         return add_ship_vertical(player, x, y+1, length-1);
     }
