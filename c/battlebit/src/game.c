@@ -95,9 +95,9 @@ int game_load_board(struct game *game, int player, char * spec) {
     for(int i=0; i<5; i++){
         //Set Row and Column
         char * current = spec;
-        char ship = *current;
-        char col = *(current + 1);
-        char row = *(current + 2);
+        char ship = *(current + (i*3));
+        char col = *(current + 1 + (i*3));
+        char row = *(current + 2 + (i*3));
 
         //Convert to Ints
         int colInt = 0;
@@ -131,13 +131,13 @@ int game_load_board(struct game *game, int player, char * spec) {
         }
 
         if(islower(ship)){
-            int add = add_ship_horizontal(player_info, colInt, rowInt, length);
+            int add = add_ship_vertical(player_info, colInt, rowInt, length);
             if(add == -1){
                 return -1;
             }
         }
         else{
-            int add = add_ship_vertical(player_info, colInt, rowInt, length);
+            int add = add_ship_horizontal(player_info, colInt, rowInt, length);
             if(add ==-1){
                 return -1;
             }
