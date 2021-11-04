@@ -83,7 +83,11 @@ int game_load_board(struct game *game, int player, char * spec) {
     // if it is invalid, you should return -1
     player_info *player_info = &game->players[player];
 
-    if(strlen(spec) != 15 | spec == NULL){
+    if(spec == NULL){
+        return -1;
+    }
+
+    if(strlen(spec) != 15){
         return -1;
     }
 
@@ -96,8 +100,15 @@ int game_load_board(struct game *game, int player, char * spec) {
         char row = *(current + 2);
 
         //Convert to Ints
-        int colInt = col - '0';
-        int rowInt = row - '0';
+        int colInt = 0;
+        int rowInt= 0;
+        if(isdigit(col) & isdigit(row)){
+            colInt = col - '0';
+            rowInt = row - '0';
+        }
+        else{
+            return -1;
+        }
 
         //Set Length
         int length = 0;
@@ -120,10 +131,16 @@ int game_load_board(struct game *game, int player, char * spec) {
         }
 
         if(islower(ship)){
-            add_ship_horizontal(player_info, colInt, rowInt, length);
+            int add = add_ship_horizontal(player_info, colInt, rowInt, length);
+            if(add == -1){
+                return -1;
+            }
         }
         else{
-            add_ship_vertical(player_info, colInt, rowInt, length);
+            int add = add_ship_vertical(player_info, colInt, rowInt, length);
+            if(add ==-1){
+                return -1;
+            }
         }
     }
     return 1;
