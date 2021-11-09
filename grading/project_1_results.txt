@@ -53,5 +53,5 @@ string: Foo
 [----------] 3 tests from game_load_board (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 5 test suites ran. (0 ms total)
+[==========] 12 tests from 5 test suites ran. (1 ms total)
 [  PASSED  ] 12 tests.
