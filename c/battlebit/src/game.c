@@ -44,7 +44,8 @@ int game_fire(game *game, int player, int x, int y) {
 
     player_info *playerFiring = &game->players[player];
     long long int mask = xy_to_bitval(x,y);
-    playerFiring->shots;
+    playerFiring->shots = playerFiring->shots & mask;
+
     player_info *playerBeingFiredAt = &game->players[1-player];
     playerBeingFiredAt->ships;
     playerFiring->hits;
