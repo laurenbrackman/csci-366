@@ -55,10 +55,17 @@ int game_fire(game *game, int player, int x, int y) {
     }
 
     if((playerFiring->ships & mask) != 0ULL) {
-        playerBeingFiredAt->ships;
-        playerFiring->hits;
-        playerBeingFiredAt->ships;
-    }
+        playerBeingFiredAt->ships = playerBeingFiredAt->ships & (~mask);
+        playerFiring->hits = playerFiring->hits | mask;
+        if(playerBeingFiredAt->ships == 0ULL){
+            if(player ==1) {
+                game->status = PLAYER_1_WINS;
+            }
+            else{
+                game->status = PLAYER_0_WINS;
+            }
+        }return 1;
+    }return 0;
 }
 
 unsigned long long int xy_to_bitval(int x, int y) {
