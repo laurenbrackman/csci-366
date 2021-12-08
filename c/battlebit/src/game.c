@@ -43,13 +43,22 @@ int game_fire(game *game, int player, int x, int y) {
     //  PLAYER_1_WINS or PLAYER_2_WINS depending on who won.
 
     player_info *playerFiring = &game->players[player];
-    long long int mask = xy_to_bitval(x,y);
-    playerFiring->shots = playerFiring->shots & mask;
-
     player_info *playerBeingFiredAt = &game->players[1-player];
-    playerBeingFiredAt->ships;
-    playerFiring->hits;
-    playerBeingFiredAt->ships;
+    long long int mask = xy_to_bitval(x,y);
+    playerFiring->shots = playerFiring->shots | mask;
+
+    if(game->status ==PLAYER_0_TURN){
+        game->status ==PLAYER_1_TURN;
+    }
+    else if(game->status ==PLAYER_1_TURN) {
+        game->status == PLAYER_0_TURN;
+    }
+
+    if((playerFiring->ships & mask) != 0ULL) {
+        playerBeingFiredAt->ships;
+        playerFiring->hits;
+        playerBeingFiredAt->ships;
+    }
 }
 
 unsigned long long int xy_to_bitval(int x, int y) {
