@@ -22,8 +22,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.268 s
-[INFO] Finished at: 2021-12-08T09:16:22-07:00
+[INFO] Total time:  2.322 s
+[INFO] Finished at: 2021-12-09T09:09:28-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:compile (default-compile) on project ArchiveCat: Compilation failure
 [ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/web/WebServer.java:[31,27] variables in try-with-resources are not supported in -source 8
