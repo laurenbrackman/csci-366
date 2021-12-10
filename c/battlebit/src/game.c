@@ -42,21 +42,34 @@ int game_fire(game *game, int player, int x, int y) {
     //  If the opponents ships value is 0, they have no remaining ships, and you should set the game state to
     //  PLAYER_1_WINS or PLAYER_2_WINS depending on who won.
 
+    //Set Players
     player_info *playerFiring = &game->players[player];
     player_info *playerBeingFiredAt = &game->players[1-player];
+
+    //Create bit mask
     long long int mask = xy_to_bitval(x,y);
+
+    //Add Mask to Shots
     playerFiring->shots = playerFiring->shots | mask;
 
+    //Adjust player status
     if(game->status ==PLAYER_0_TURN){
-        game->status ==PLAYER_1_TURN;
+        game->status =PLAYER_1_TURN;
     }
     else if(game->status ==PLAYER_1_TURN) {
-        game->status == PLAYER_0_TURN;
+        game->status = PLAYER_0_TURN;
+    }
+    else if(game->status==CREATED){
+        game->status =PLAYER_0_TURN;
     }
 
-    if((playerFiring->ships & mask) != 0ULL) {
+    //If mask intersects with ships
+    if((playerBeingFiredAt->ships & mask) != 0ULL) {
+        //remove hit ships
         playerBeingFiredAt->ships = playerBeingFiredAt->ships & (~mask);
+        //Add to hits
         playerFiring->hits = playerFiring->hits | mask;
+        //If all ships are gone
         if(playerBeingFiredAt->ships == 0ULL){
             if(player ==1) {
                 game->status = PLAYER_1_WINS;
