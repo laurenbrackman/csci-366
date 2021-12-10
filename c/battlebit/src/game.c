@@ -59,9 +59,6 @@ int game_fire(game *game, int player, int x, int y) {
     else if(game->status ==PLAYER_1_TURN) {
         game->status = PLAYER_0_TURN;
     }
-    else if(game->status==CREATED){
-        game->status =PLAYER_0_TURN;
-    }
 
     //If mask intersects with ships
     if((playerBeingFiredAt->ships & mask) != 0ULL) {
@@ -120,6 +117,9 @@ int game_load_board(struct game *game, int player, char * spec) {
     //
     // if it is invalid, you should return -1
     player_info *player_info = &game->players[player];
+    if(player==1){
+        game->status=PLAYER_0_TURN;
+    }
 
     //Check for NULL
     if(spec ==NULL){
