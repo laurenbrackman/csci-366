@@ -21,6 +21,15 @@ public class ImageDownloadJob extends AbstractDownloadJob {
         // TODO implement - hint: use the 'Content-Type' header of the
         //                  response to determine the type of image and
         //                  give it the correct file ending
+
+        var baseName = getArchive().computeSHA1(getURL());
+        var client = HttpClient.newHttpClient();
+        var request = HttpRequest.newBuilder(URI.create(getURL())).build();
+
+        HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+
+        String contentTypeHeader = response.headers().firstValue("Content-Type").get();
+        _fullPathToImage = getArchive().saveFile(baseName + ".gif", response.body());
     }
 
     @Override
