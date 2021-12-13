@@ -15,19 +15,27 @@
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/web/WebServer.java:[31,27] variables in try-with-resources are not supported in -source 8
-  (use -source 9 or higher to enable variables in try-with-resources)
-[INFO] 1 error
+[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/archivecat/archiver/Archiver.java:[47,34] cannot find symbol
+  symbol:   variable downloadJobs
+  location: class edu.montana.csci.csci366.archivecat.archiver.Archiver
+[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/archivecat/archiver/Archiver.java:[50,32] cannot find symbol
+  symbol:   variable downloadJobs
+  location: class edu.montana.csci.csci366.archivecat.archiver.Archiver
+[INFO] 2 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.322 s
-[INFO] Finished at: 2021-12-09T09:09:28-07:00
+[INFO] Total time:  1.281 s
+[INFO] Finished at: 2021-12-13T13:44:38-07:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:compile (default-compile) on project ArchiveCat: Compilation failure
-[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/web/WebServer.java:[31,27] variables in try-with-resources are not supported in -source 8
-[ERROR]   (use -source 9 or higher to enable variables in try-with-resources)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:compile (default-compile) on project ArchiveCat: Compilation failure: Compilation failure: 
+[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/archivecat/archiver/Archiver.java:[47,34] cannot find symbol
+[ERROR]   symbol:   variable downloadJobs
+[ERROR]   location: class edu.montana.csci.csci366.archivecat.archiver.Archiver
+[ERROR] /home/carson/Projects/msu/csci-366-fall2021/grading/scripts/repos/lauren_helbling/cloud/src/main/java/edu/montana/csci/csci366/archivecat/archiver/Archiver.java:[50,32] cannot find symbol
+[ERROR]   symbol:   variable downloadJobs
+[ERROR]   location: class edu.montana.csci.csci366.archivecat.archiver.Archiver
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
