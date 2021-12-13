@@ -41,6 +41,6 @@ public class ImageDownloadJob extends AbstractDownloadJob {
     @Override
     protected String getURL() {
         // TODO implement
-        return "";
+        return getElement().attr("abs:src");
     }
 }
