@@ -35,6 +35,7 @@ public class ImageDownloadJob extends AbstractDownloadJob {
     @Override
     public void updateElement() {
         // TODO implement
+        getElement().attr("src", "/" + _fullPathToImage);
     }
 
     @Override
