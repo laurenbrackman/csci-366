@@ -26,8 +26,8 @@ string: Foo
 [ RUN      ] xy_to_bitval.good_values
 [       OK ] xy_to_bitval.good_values (0 ms)
 [ RUN      ] xy_to_bitval.bad_values
-[       OK ] xy_to_bitval.bad_values (0 ms)
-[----------] 2 tests from xy_to_bitval (0 ms total)
+[       OK ] xy_to_bitval.bad_values (1 ms)
+[----------] 2 tests from xy_to_bitval (1 ms total)
 
 [----------] 2 tests from add_ship_horizontal
 [ RUN      ] add_ship_horizontal.empty_ship
