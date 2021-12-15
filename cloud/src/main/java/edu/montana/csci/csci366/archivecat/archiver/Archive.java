@@ -63,7 +63,10 @@ public class Archive {
 
     public String saveFile(String fileName, byte[] body) throws IOException {
         // safe the content to the archive root, followed by the name of this archive folder, followed by the file name
-        return "Hello";
+        String fullPath = ARCHIVE_ROOT + "/" + _sha + "/" + fileName;
+        Path filePath = Path.of(fullPath);
+        Files.write(filePath, body);
+        return fullPath;
     }
 
     public String getRoot() {

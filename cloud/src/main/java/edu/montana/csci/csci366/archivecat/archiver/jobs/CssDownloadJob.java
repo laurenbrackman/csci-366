@@ -20,16 +20,23 @@ public class CssDownloadJob extends AbstractDownloadJob {
         // TODO - download the CSS resource to a local file
         //        hint: generate a SHA of the URL for the CSS file to create a
         //              unique file name
+        var baseName = getArchive().computeSHA1(getURL());
+        var client = HttpClient.newHttpClient();
+        var request = HttpRequest.newBuilder(URI.create(getURL())).build();
+
+        HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+
+        _fullPathToCss = getArchive().saveFile(baseName + ".css", response.body());
     }
 
     @Override
     public void updateElement() {
-        // TODO implement
+        getElement().attr("href", "/" + _fullPathToCss);
     }
 
     @Override
     protected String getURL() {
         // TODO implement
-        return "";
+        return getElement().attr("abs:href");
     }
 }

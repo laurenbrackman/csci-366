@@ -29,7 +29,12 @@ public class ImageDownloadJob extends AbstractDownloadJob {
         HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
 
         String contentTypeHeader = response.headers().firstValue("Content-Type").get();
-        _fullPathToImage = getArchive().saveFile(baseName + ".gif", response.body());
+        if(contentTypeHeader.equals("image/jpeg")){
+            _fullPathToImage = getArchive().saveFile(baseName + ".jpeg", response.body());
+        }
+        else if(contentTypeHeader.equals("image/gif")){
+            _fullPathToImage = getArchive().saveFile(baseName + ".gif", response.body());
+        }
     }
 
     @Override

@@ -11,5 +11,22 @@ public class ThreadedJobRunner implements DownloadJobRunner {
         // TODO - run each job in its own thread.  Use a CountdownLatch
         //        to ensure that all threads complete before exiting this
         //        method
+        CountDownLatch latch = new CountDownLatch(downloadJobs.size());
+        for(DownloadJob downloadJob : downloadJobs){
+            var t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    downloadJob.run();
+                    latch.countDown();
+                }
+            });
+            t.start();;
+        }
+        try{
+            latch.await();
+        }
+        catch(InterruptedException e){
+            throw new RuntimeException(e);
+        }
     }
 }
