@@ -110,10 +110,10 @@ With diff:
 +6                 
 +7         * * *   \n
 
-[  FAILED  ] repl_print_ships.print_ships (2 ms)
+[  FAILED  ] repl_print_ships.print_ships (0 ms)
 [ RUN      ] repl_print_ships.print_ship_status
 [       OK ] repl_print_ships.print_ship_status (0 ms)
-[----------] 2 tests from repl_print_ships (2 ms total)
+[----------] 2 tests from repl_print_ships (0 ms total)
 
 [----------] 2 tests from repl_print_hits
 [ RUN      ] repl_print_hits.print_hits
