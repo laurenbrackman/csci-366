@@ -71,10 +71,10 @@ string: Foo
 5 0 0 1 0 0 0 0 1
 6 0 0 0 0 0 0 0 1
 7 1 1 1 1 0 0 0 1
-[       OK ] game_fire.miss_fire2 (1 ms)
+[       OK ] game_fire.miss_fire2 (0 ms)
 [ RUN      ] game_fire.invalid_fire
 [       OK ] game_fire.invalid_fire (0 ms)
-[----------] 6 tests from game_fire (1 ms total)
+[----------] 6 tests from game_fire (0 ms total)
 
 [----------] 1 test from game_status
 [ RUN      ] game_status.is_correct
