@@ -1,7 +1,6 @@
 # CSCI 366 – Computer Systems
 
-This repository contains coursework from my **CSCI 366: Computer Systems** class (Fall 2021).  
-The course introduced fundamental concepts in computer systems, from low-level architecture to cloud-based operating systems.
+This repository contains coursework from my **CSCI 366: Computer Systems** class.  
 
 ## Topics Covered
 - Software environments and development tools  
