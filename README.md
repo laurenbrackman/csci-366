@@ -1,33 +1,23 @@
-# CSCI 366 - Fall 2021
+# CSCI 366 – Computer Systems
 
-This is the root folder for the CSCI 366 class project
+This repository contains coursework from my **CSCI 366: Computer Systems** class (Fall 2021).  
+The course introduced fundamental concepts in computer systems, from low-level architecture to cloud-based operating systems.
 
-The class is broken up into three sections:
+## Topics Covered
+- Software environments and development tools  
+- Computer architecture and organization  
+- Concurrency and process management  
+- Information management and data handling  
+- Network communications  
+- Operating systems with a focus on cloud computing  
 
-* The CPU & Assembly in `/assembly`
-* C Programming in `/c`
-* Cloud Computing in `/cloud`
+## Repository Structure
+- `/assembly` → CPU & Assembly exercises  
+- `/c` → C programming projects  
+- `/cloud` → Cloud computing assignments  
 
-You will see there are three folders corresponding to these three areas in this
-directory, as well as a grading folder that is used to grade your projects.
-
-## Getting Your Private Copy
-
-Please use the following steps to create a *private* copy of this repo for your work:
-
-- Create a *private* repository in your own account by
-    - Going to <https://github.com/new>
-    - Enter the name `csci-366-fall2021-private`
-    - Select `Private`
-    - Navigate to the `Settings` -> `Manage Access` section
-    - Add `1cg` as a collaborator
-- Now run the following git commands, substituting your Github user name and NetID where required:
-```bash
-$ git clone https://github.com/msu/csci-366-fall2021.git csci-366-fall2021-private
-$ cd csci-366-fall2021-private
-$ git remote set-url origin git@github.com:<YOUR GITHUB USER NAME>/csci-366-fall2021-private.git
-$ git remote add upstream https://github.com/msu/csci-366-fall2021.git
-$ git push origin master
-```
- 
-
+## Skills Practiced
+- Writing low-level programs in **Assembly**  
+- Managing memory and pointers in **C**  
+- Understanding computer organization and concurrency  
+- Basics of **cloud computing** and distributed systems  
